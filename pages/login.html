@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="shortcut icon" href="https://s01.mifile.cn/favicon.ico" type="image/x-icon">
+    <title>登录</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="topnav">
+            <div class="nav container">
+                <ul>
+                    <li><a href="#">小米商城</a></li>
+                    <li><a href="#">MUI</a><span>|</span></li>
+                    <li><a href="#">loT云服务</a><span>|</span></li>
+                    <li><a href="#">天星数科有品</a><span>|</span></li>
+                    <li><a href="#">小爱开放平台</a><span>|</span></li>
+                    <li><a href="#">企业团购</a><span>|</span></li>
+                    <li><a href="#">资质证照协议规则</a><span>|</span></li>
+                    <li class="code">
+                        <a href="#">下载app</a><span>|</span>
+                        <span class="QR_code">
+                        <i></i>
+                        <!-- <img src="//i1.mifile.cn/f/i/17/appdownload/download.png?1" alt=""> -->
+                </span>
+                    </li>
+                    <li><a href="#">智能生活</a><span>|</span></li>
+                    <li><a href="#">SelectLocation</a></li>
+                </ul>
+                
+                <ul>
+                    <div class="regist">
+                        <li><a href="../pages/login.html">登录</a><span>|</span></li>
+                        <li><a href="../pages/register.html">注册</a><span>|</span></li>
+                    </div>
+                    <li><a href="#">消息通知</a></li>
+                    <li class="cart"><a href="../pages/cart.html" class="iconfont icon-buoumaotubiao40">购物车</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wapper container">
+        <a href="./index.html">小米网</a>
+    </div>
+    <div class="banner">
+        <div id="box">
+            <img src="https://account.xiaomi.com/static/res/349d9c1/account-static/respassport/acc-2014/img/milogo.png"
+                alt="">
+            <form id="form">
+                <p>
+                    <span class="aa">账号</span>
+                    <input type="text" name="username" placeholder="请输入账号" id="un">
+                </p>
+                <div class="un"></div>
+                <p>
+                    <span class="aa">密码</span>
+                    <input type="text" name="password" placeholder="请输入密码" id="pw">
+                </p>
+                <div class="pw"></div>
+                <input type="button" value="登录" id="btn">
+                <input type="button" value="立即注册" class="rsg">
+                <div class="error"></div>
+            </form>
+            <div class="icon">
+                <a href="" class="iconfont icon-qq"></a>
+                <a href="" class="iconfont icon-weibo"></a>
+                <a href="" class="iconfont icon-zhifubao"></a>
+                <a href="" class="iconfont icon-wxtb"></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../lib/jquery1.12.4.min.js"></script>
+<script>
+    /* 登录页 */
+    // 引用jquery
+    // console.log($)
+    // 1.获取元素
+    // 验证用户名和密码
+
+    // 15179732936
+    // lll@123123
+
+    $('#un').on('input',function(){
+        var unId = $('#un').val();
+        var reg = /^[1]\d{10}$/;   
+        if(!reg.test(unId)){
+            $('.un').text('账号必须是由1开头的11位数字组成');
+            $('.un').css('color','red');
+            if(unId == ''){
+                $('.un').text('');
+            }
+        }else{
+            $('.un').text('账号符合');
+            $('.un').css('color','#ff6700');
+        }
+    }) 
+    
+    $('#pw').on('input',function(){
+        var pwId = $('#pw').val();
+        var reg = /^[\w@#\$~]{8,12}$/;   
+        if(!reg.test(pwId)){
+            $('.pw').text('密码必须由8-12位字母数字以及特殊符号组成');
+            $('.pw').css('color','red');
+            if(pwId == ''){
+                $('.pw').text('');
+            }
+        }else{
+            $('.pw').text('密码符合');
+            $('.pw').css('color','#ff6700');
+        }
+    })
+
+    
+    $('#btn').on('click',getData);
+
+    async function getData() {
+        // var un = $('#un').val();
+        // var pw = $('#pw').val();
+        var data = await $.ajax({
+            url: '../php/login.php',
+            method: 'post',
+            dataType: 'json',
+            data:{
+                username:$('#un').val(),
+                password:$('#pw').val()
+            },
+            success: function (data) {
+                console.log(data)
+                if(data.code == 1){
+                    // 登录成功，设置会话存储：name
+                    // setCookie('un',$username,time()+3600);
+                    localStorage.setItem('name',$('#un').val());
+                    alert("登录成功，跳转首页")
+                    // document.cookie = `name = ${$('#un').val()}`
+                    setTimeout(function(){
+                        location.href = "./index.html"
+                    },1000)
+                }else{
+                    $('.error').text('用户名或密码错误').css('color','red')
+                }
+            }
+        })
+    }
+    $('.rsg').on('click',function(){
+        location.href = "./register.html"
+    }) 
+    
+
+</script>
+
+</html>

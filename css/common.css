@@ -1,0 +1,158 @@
+.topnav{
+    height: 40px;
+    line-height: 40px;
+    background: #333;
+}
+.topnav ul:nth-child(1){
+    float: left;
+}
+.topnav ul:nth-child(2){
+    float: right;
+}
+.topnav ul li{
+    height: 40px;
+    float: left;
+}
+.topnav ul li span{
+    color: #393f3f;
+    font-size: 12px;
+}
+.topnav ul li a{
+    font-size: 12px;
+    padding: 0 8px;
+    color: #b0b0b0;
+}
+.topnav ul li a:hover{
+    color: #fff;
+}
+.topnav .cart>a{
+    padding: 0;
+    height: 40px;
+    text-align: center;
+    display: block;
+    width: 120px;
+    background: #424242;
+}
+.topnav .cart>a:hover{
+    background: #fff;
+    color: #ff6700;
+}
+.nav{
+    position: relative;
+    height: 40px;
+}
+.nav .QR_code{
+    /* background: #fff; */
+    width: 124px;
+    text-align: center;
+    /* width: 90px; */
+    /* height: 90px; */
+    position: absolute;
+    left: 515px;
+    top: 23px;
+    z-index: 2;
+    display: none;
+}
+.nav .QR_code i{
+    margin: 0 auto;
+    display: block;
+    border: 10px solid #fff;
+    width: 0;
+    border-color: transparent transparent #fff transparent;
+}
+.nav .QR_code img{
+    margin: 18px auto 12px;
+    display: block;
+    width: 90px;
+}
+.nav .code:hover .QR_code{
+    display: block;
+    transition: all 2s linear;
+}
+/* .topnav .nav .regist{
+    width: 275px;
+} */
+.topnav .nav .regist{
+    height: 40px;
+    float: left;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+
+/* 搜索框+列表 */
+.toplist{
+    line-height: 100px;
+    height: 100px;
+}
+.toplist>.logo{
+    float: left;
+}
+
+
+/* logo后的手机 */
+.toplist>ul{
+    float: left;
+}
+.toplist>ul li{
+    position: relative;
+    float: left;
+}
+.toplist>ul .first-li{
+    width: 180px;
+    height: 100px;
+}
+.toplist>ul li a{
+    display: block;
+    height: 100px;
+    padding: 0 10px;
+}
+.toplist>ul li a:hover{
+    color: #ff6700;
+}
+
+.toplist>.search{
+    height: 50px;
+    margin-top: 25px;
+    width: 300px;
+    float: right;
+    /* line-height: 100px; */
+}
+.toplist>.search form{
+    position: relative;
+    height: 50px;
+    width: 292px;
+}
+.search div{
+    text-indent: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 238px;
+    height: 46px;
+    border: 1px solid #e0e0e0;
+}
+.search span{
+    color: #616161;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 2px;
+    width: 49px;
+    height: 46px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 0;
+    transition: all .2s linear;
+}
+.search span i{
+    font-size: 18px;
+    font-weight: 800;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    line-height: 0;
+}
+.search span:hover{
+    color: #fff;
+    background: #ff6700;
+}

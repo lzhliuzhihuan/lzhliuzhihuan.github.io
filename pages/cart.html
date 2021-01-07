@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="shortcut icon" href="https://s01.mifile.cn/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <title>购物车</title>
+    <style>
+        .container {
+            width: 1226px;
+            margin: 0 auto;
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin: 50px auto 0;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        table>caption {
+            text-align: left;
+            padding: 10px;
+            font-size: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        table>caption>i {
+            color: #ff6700;
+            font-weight: bold;
+        }
+
+        thead {
+            background: #f3f3f3;
+            font-size: 18px;
+            color: #444;
+            /* font-weight: 200; */
+        }
+
+        thead>tr>th {
+            width: 100px;
+            font-weight: 400;
+            height: 30px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            width: 160px;
+            height: 50px;
+        }
+
+        img {
+            height: 50px;
+        }
+
+        input {
+            line-height: 100%;
+            height: 17px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .add,
+        .cut {
+            font-size: 20px;
+        }
+
+        h2 {
+            height: 30px;
+            margin: 50px auto;
+
+            font-size: 20px;
+            text-align: center;
+        }
+
+        h2 a {
+            color: #ff6700;
+        }
+
+        .add,
+        .cut {
+            line-height: 14px;
+            font-size: 12px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="topnav">
+            <div class="nav container">
+                <ul>
+                    <li><a href="#">小米商城</a></li>
+                    <li><a href="#">MUI</a><span>|</span></li>
+                    <li><a href="#">loT云服务</a><span>|</span></li>
+                    <li><a href="#">天星数科有品</a><span>|</span></li>
+                    <li><a href="#">小爱开放平台</a><span>|</span></li>
+                    <li><a href="#">企业团购</a><span>|</span></li>
+                    <li><a href="#">资质证照协议规则</a><span>|</span></li>
+                    <li class="code">
+                        <a href="#">下载app</a><span>|</span>
+                        <span class="QR_code">
+                            <i></i>
+                            <!-- <img src="//i1.mifile.cn/f/i/17/appdownload/download.png?1" alt=""> -->
+                        </span>
+                    </li>
+                    <li><a href="#">智能生活</a><span>|</span></li>
+                    <li><a href="#">SelectLocation</a></li>
+                </ul>
+
+                <ul>
+                    <div class="regist">
+                        <li><a href="../pages/login.html">登录</a><span>|</span></li>
+                        <li><a href="../pages/register.html">注册</a><span>|</span></li>
+                    </div>
+                    <li><a href="#">消息通知</a></li>
+                    <li class="cart">
+                        <a href="../pages/cart.html" class="iconfont icon-buoumaotubiao40">购物车(<span></span>)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="toplist container">
+            <div class="logo">
+                <a href="./index.html"><img src="https://s02.mifile.cn/assets/static/image/logo-footer.png" alt=""></a>
+            </div>
+            <ul class="nav-list clearfix">
+                <li class="first-li"></li>
+                <li class="nav-item hov">
+                    <a href="#">小米手机</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">Redmi红米</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">电视</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">笔记本</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">家电</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">路由器</a>
+                </li>
+                <li class="nav-item hov">
+                    <a href="#">智能硬件</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">服务</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">社区</a>
+                </li>
+            </ul>
+            <div class="search">
+                <form>
+                    <div></div>
+                    <span>
+                        <i class="iconfont icon-sousuo"></i>
+                    </span>
+                </form>
+            </div>
+        </div>
+        <!-- <a href="../pages/cart.html"><img src="../images/detail-cart.png" alt=""></a> -->
+    </div>
+    <h2><a href="./index.html">购物车空空如也，去购物吧</a></h2>
+    <table>
+        <caption>购物车
+            <i class="iconfont icon-buoumaotubiao40"></i>
+        </caption>
+        <thead>
+            <tr>
+                <th>商品id</th>
+                <th>商品名称</th>
+                <th>商品图片</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <span></span>
+</body>
+<script src="../lib/jquery1.12.4.min.js"></script>
+<script>
+    // 登录验证，会话存储
+    // var usName = document.cookie;
+    var usName = localStorage.getItem('name');
+    var regist = document.querySelector('.regist')
+    if (usName) {
+        // console.log(usName)
+        regist.innerHTML = usName;
+        // $('regist').children('div').empty().appendTo(`
+        // <li>
+        //     <a href="#">${usName}</a><span>|</span>
+        // </li>
+        // `)
+    }
+    // 判断是否登录
+    if (!usName) {
+        window.onclick = function () {
+            location.href = "./login.html"
+        }
+    }
+    /* 
+        展示已经加入购物车的商品信息，
+        可以修改商品数量，删除商品
+    */
+
+    
+    // $('.cart')
+    // 初始化
+    showData()
+    // 1、展示已经加入购物车的商品信息
+    async function showData() {
+        var data = await $.ajax({
+            url: '../php/interface/showlist.php',
+            dataType: 'json',
+            method: 'post'
+        })
+        if (data.code == 1) {
+            $('tbody').empty()
+            data = data.data;
+            if (data.length < 1) {
+                $('table').hide();
+                $('h2').show()
+                return;
+            }
+            $('h2').css('display', 'none');
+            // 遍历得到的数据
+            $.each(data, function (index, item) {
+                // 小计
+                var price = item.product_num * item.product_price;
+                // 渲染数据
+                $(`
+                    <tr>
+                        <td>${item.product_id}</td>
+                        <td>${item.product_name}</td>
+                        <td>
+                            <img src="${item.product_img}" alt=""> 
+                        </td>
+                        <td>￥<span>${item.product_price}</span></td>
+                        <td>
+                            <button class="cut">-</button>
+                            <input type="text" value="${item.product_num}">
+                            <button class="add">+</button>
+                        </td>
+                        <td>￥<span>${price}</span></td>
+                        <td><button class="del">删除</button></td>
+                    </tr> 
+                `).appendTo($('tbody'))
+            })
+            
+            // console.log($('tbody').children('tr').length)
+        } else {
+            $('table').hide()
+            $('h2').show()
+        }
+        if($('tbody').children('tr').length > 0){
+                $('.cart').children('a').children('span').html($('tbody').children('tr').length).css({
+                    color:'#ff6700'
+                })
+                $('.cart').children('a').css({
+                    backgroundColor:'#fff',
+                    color:'#ff6700'
+                })
+            }else if($('tbody').children('tr').length == 0){
+                $('.cart').children('a').children('span').html($('tbody').children('tr').length).css({
+                    color:'#b0b0b0'
+                })
+                $('.cart').children('a').css({
+                    backgroundColor:'#333',
+                    color:'#b0b0b0'
+                })
+            }
+    }
+
+    // 修改商品数量
+    $('tbody').on('click', 'button', async function () {
+        var data = await $.ajax({
+            url: '../php/interface/update.php',
+            type: 'post',
+            data: {
+                id: $(this).parents('tr').children().eq(0).html(),
+                type: this.className
+            },
+            dataType: 'json'
+        })
+
+        if (data.code == 1) {
+            if (this.className == "add") {
+                var num = $(this).siblings('input').val();
+                $(this).siblings('input').val(+num + 1);//+num：强转number类型
+                $(this).parents('tr').children().eq(5).children('span').html((+num + 1) * ($(this).parents('tr').children().eq(3).children('span').html()))
+            } else {
+                var num = $(this).siblings('input').val();
+                $(this).siblings('input').val(num - 1);
+                $(this).parents('tr').children().eq(5).children('span').html((num - 1) * ($(this).parents('tr').children().eq(3).children('span').html()))
+                if (num <= 1) {
+                    num = 1
+                    $(this).siblings('input').val(num)
+                    $(this).parents('tr').children().eq(5).children('span').html(num * ($(this).parents('tr').children().eq(3).children('span').html()))
+                    alert('不能再减了')
+                }
+            }
+        }
+    })
+    // 删除商品
+    $('tbody').on('click', '.del', async function () {
+        var data = await $.ajax({
+            url: '../php/interface/del.php',
+            data: {
+                id: $(this).parents('tr').children().eq(0).html()
+            }
+        })
+        $(this).parents('tr').remove();
+        alert('商品删除成功')
+        showData()
+
+        if ($('tbody').html() == '') {
+            $('table').css('display', 'none')
+            $('h2').css('display', 'block')
+        }
+        // .empty()
+
+    })
+
+</script>
+
+</html>

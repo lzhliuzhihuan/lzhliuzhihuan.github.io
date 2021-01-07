@@ -1,0 +1,137 @@
+.container {
+    width: 1300px;
+    margin: 0 auto;
+}
+.wapper>a{
+    width: 200px;
+    height: 98px;
+    display: block;
+    background: url("https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png");
+    text-indent: -9999px;
+}
+#box {
+    position: absolute;
+    top: 30px;
+    right: 200px;
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    background: #fff;
+}
+img {
+    display: block;
+    margin: 10px auto 0;
+}
+h3 {
+    font-weight: normal;
+    text-align: right;
+    padding: 10px 30px;
+}
+a {
+    color: coral;
+}
+a:hover {
+    color: #ff5000;
+}
+#form {
+    margin: 30px auto;
+    text-align: center;
+}
+
+#form>p {
+    line-height: 42px;
+    margin: 0 auto;
+    height: 42px;
+}
+#form>p>.aa {
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}
+#form>.un,#form>.pw{
+    font-size: 12px;
+    height: 20px;
+    text-align: left;
+    text-indent: 105px;
+}
+#form>p>input {
+    width: 240px;
+    height: 32px;
+    border: 1px solid #ccc;
+}
+#form>.error{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+::placeholder{
+    text-indent: 10px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+#btn,#login {
+    display: block;
+    height: 42px;
+    background: #ff6700;
+    width: 280px;
+    color: #fff;
+    border: none;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.rsg{
+    height: 42px;
+    background: #ff6700;
+    width: 280px;
+    color: #fff;
+    border: none;
+    margin: 10px auto 0;
+    cursor: pointer;
+}
+.rsg:hover{
+    opacity: 0.7;
+    color: #ccc;
+    filter: alpha(opacity=70);
+}
+
+
+#login {
+    background-color: #ff5000;
+    margin-bottom: 20px;
+}
+#btn:hover,#login:hover {
+    opacity: 0.7;
+    color: #ccc;
+    filter: alpha(opacity=70);
+}
+.banner{
+    position: relative;
+    height: 588px;
+    background: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/72644d9b8031286de3cc74e151aefd90.jpg") no-repeat 50% 100%;
+}
+.icon{
+    padding: 0 65px;
+    line-height: 37px;
+    height: 37px;
+}
+.icon>a{
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 37px;
+    font-size: 30px;
+    margin: 0 12px;
+}
+.icon a:nth-child(1){
+    color: #0288d1;
+}
+.icon a:nth-child(2){
+    color: #d32f2f;
+}
+.icon a:nth-child(3){
+    color: #00aaee;
+}
+.icon a:nth-child(4){
+    color: #00d20d;
+}
