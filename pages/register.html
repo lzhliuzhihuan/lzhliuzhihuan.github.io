@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +16,14 @@
             height: 100%;
             text-align: justify;
         }
+
         ::placeholder {
             text-indent: 10px;
             color: #ccc;
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="topnav">
@@ -36,14 +39,14 @@
                     <li class="code">
                         <a href="#">下载app</a><span>|</span>
                         <span class="QR_code">
-                        <i></i>
-                        <!-- <img src="//i1.mifile.cn/f/i/17/appdownload/download.png?1" alt=""> -->
-                </span>
+                            <i></i>
+                            <!-- <img src="//i1.mifile.cn/f/i/17/appdownload/download.png?1" alt=""> -->
+                        </span>
                     </li>
                     <li><a href="#">智能生活</a><span>|</span></li>
                     <li><a href="#">SelectLocation</a></li>
                 </ul>
-                
+
                 <ul>
                     <div class="regist">
                         <li><a href="../pages/login.html">登录</a><span>|</span></li>
@@ -85,59 +88,85 @@
     /* 
         1:账号是11位的手机号，密码由数字字母下划线以及特殊符号组成
     */
+    var usernameInp = document.querySelector('#un');
+    var usernameSpan = document.querySelector('.un');
+    var passwordInp = document.querySelector('#pw');
+    var passwordSpan = document.querySelector('.pw');
+    var form = document.querySelector('#form')
+    usernameInp.oninput = checkUsername;
+    passwordInp.oninput = checkPassword
     // 账号验证
-    $('#un').on('input', function () {
-        var unId = $('#un').val();
-        var reg = /^[1]\d{10}$/;
-        if (!reg.test(unId)) {
-            $('.un').text('账号必须是由1开头的11位数字组成');
-            $('.un').css('color', 'red');
-            if (unId == '') {
-                $('.un').text('');
-            }
+    function checkUsername() {
+        // 用户名必须是6-8位的字母数字或者下划线
+        var reg = /^[1]\d{10}$/;//用户名检测的正则
+        // var reg = /^\w{6,8}$/;
+        var username = usernameInp.value;//输入的用户名
+        if (!username) {
+            usernameSpan.innerHTML = ''
         } else {
-            $('.un').text('账号符合');
-            $('.un').css('color', '#ff6700');
+            if (reg.test(username)) {
+                // 用户名合法
+                usernameSpan.innerHTML = "用户名可以注册";
+                usernameSpan.style.color = "green";
+                return true;
+            } else {
+                // 用户名不合法
+                usernameSpan.innerHTML = "用户名必须是6-8位的字母数字或者下划线";
+                usernameSpan.style.color = "red";
+                return false;
+            }
         }
-    })
-
+    }
     // 密码验证
-    $('#pw').on('input', function () {
-        var pwId = $('#pw').val();
-        var reg = /^[\w@#\$~]{8,12}$/;
-        if (!reg.test(pwId)) {
-            $('.pw').text('密码必须由8-12位字母数字以及特殊符号组成');
-            $('.pw').css('color', 'red');
-            if (pwId == '') {
-                $('.pw').text('');
-            }
+    function checkPassword() {
+        var password = passwordInp.value;//密码
+        // 检测密码
+        if (/^[\w~!@#]{8,12}$/.test(password) && /\d+/.test(password) && /[A-Z]+/.test(password) && /[a-z]+/.test(password)) {
+            // 高强度密码
+            passwordSpan.innerHTML = "密码强度高";
+            passwordSpan.style.color = "green";
+            return true;
+        }
+        if (/^[\w~!@#]{8,12}$/.test(password)) {
+            // 低强度密码
+            passwordSpan.innerHTML = "密码强度低";
+            passwordSpan.style.color = "green";
+            return true;
         } else {
-            $('.pw').text('密码符合');
-            $('.pw').css('color', '#ff6700');
+            // 密码不合法
+            passwordSpan.innerHTML = "密码必须是8-12的字母,数字或者特殊符号";
+            passwordSpan.style.color = "red";
+            return false;
         }
-    })
+    }
     // 点击注册，发送ajax请求，code=1账号密码真确，code=0则错误
-    $('#btn').on('click',async function(){
-        var data = await $.ajax({
-            url:"../php/register.php",
-            data:{
-                username:$('#un').val(),
-                password:$('#pw').val()
-            },
-            dataType:'json'
+    if (checkUsername() && checkPassword()) {
+        $('#btn').on('click', async function () {
+            var data = await $.ajax({
+                url: "../php/register.php",
+                data: {
+                    username: $('#un').val(),
+                    password: $('#pw').val()
+                },
+                dataType: 'json'
+            })
+            // console.log(data)
+            if (data.code == 1) {
+                alert('注册成功')
+                setTimeout(function () {
+                    location.href = "./login.html"
+                }, 1000)
+            }
+            // if($('#un').val().)
+            else {
+                alert("账号已存在")
+            }
         })
-        // console.log(data)
-        if(data.code == 1){
-            alert('注册成功')
-            setTimeout(function(){
-                location.href = "./login.html"
-            },1000)
-        }
-        // if($('#un').val().)
-        else{
-            alert("账号已存在")
-        }
-    })
+    } else {
+        $('#btn').on('click', function () {
+            alert('注册失败，按要求注册')
+        })
+    }
 </script>
 
 </html>
