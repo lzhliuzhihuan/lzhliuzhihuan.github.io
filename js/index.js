@@ -76,7 +76,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 setInterval(showTime,1000)
 // 倒计时
 function showTime(){
-    var time1 = new Date(2021,1,8);//过年时间
+    var time1 = new Date(2021,0,10);//过年时间
     var time2 = new Date().getTime();//当前时间
     // 时间差，换算成秒
     var differ = parseInt((time1 - time2)/1000);
