@@ -93,8 +93,7 @@
     var passwordInp = document.querySelector('#pw');
     var passwordSpan = document.querySelector('.pw');
     var form = document.querySelector('#form')
-    usernameInp.oninput = checkUsername;
-    passwordInp.oninput = checkPassword
+
     // 账号验证
     function checkUsername() {
         // 用户名必须是6-8位的字母数字或者下划线
@@ -139,8 +138,15 @@
             return false;
         }
     }
+
+    usernameInp.oninput = checkUsername;
+    passwordInp.oninput = checkPassword;
     // 点击注册，发送ajax请求，code=1账号密码真确，code=0则错误
-    if (checkUsername() && checkPassword()) {
+    if ((checkUsername() && checkPassword())){
+        $('#btn').on('click', function () {
+            alert('注册失败，按要求注册')
+        })
+    } else {
         $('#btn').on('click', async function () {
             var data = await $.ajax({
                 url: "../php/register.php",
@@ -157,15 +163,11 @@
                     location.href = "./login.html"
                 }, 1000)
             }
-            // if($('#un').val().)
             else {
                 alert("账号已存在")
             }
         })
-    } else {
-        $('#btn').on('click', function () {
-            alert('注册失败，按要求注册')
-        })
+
     }
 </script>
 
